@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <h1>Carbon Footprint Calculator</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="num_house">Number of Houses:</label>
+        <input type="number" id="num_house" name="num_house"><br><br>
+
+        <label for="num_of_industries">Number of Industries:</label>
+        <input type="number" id="num_of_industries" name="num_of_industries"><br><br>
+
+        <label for="num_of_vehicle">Number of Vehicles:</label>
+        <input type="number" id="num_of_vehicle" name="num_of_vehicle"><br><br>
+
+        <label for="water_surface_area">Water Body Surface Area (in acres):</label>
+        <input type="number" id="water_surface_area" name="water_surface_area"><br><br>
+
+        <label for="water_volume">Water Body Volume (in acre-feet):</label>
+        <input type="number" id="water_volume" name="water_volume"><br><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+    
+    {% if total_carbon_footprint %}
+        <h2>Total Carbon Footprint: {{ total_carbon_footprint }} metric tons per year</h2>
+    {% endif %}
+</body>
+</html>
